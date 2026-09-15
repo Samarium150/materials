@@ -160,8 +160,9 @@ accessible after being released. In simple programs, this is easy enough, but in
 resource management can be very non-trivial. For this reason, the majority of vulnerabilities in real-world software are
 memory safety vulnerabilities[+note-2].
 
-[+note-2]: [Chromium says 70%](https://www.chromium.org/Home/chromium-security/memory-safety/), as
-does [Microsoft](https://www.zdnet.com/article/microsoft-70-percent-of-all-security-bugs-are-memory-safety-issues/).
+[+note-2]: 
+  [Chromium says 70%](https://www.chromium.org/Home/chromium-security/memory-safety/), 
+  as does [Microsoft](https://www.zdnet.com/article/microsoft-70-percent-of-all-security-bugs-are-memory-safety-issues/).
 
 One key benefit of C++ over C is the ability to tie *ownership* of *resources* to the *lifetime* of variables, which
 allows the program stack to automatically manage resources for us, using an idiom called *Resource Acquisition is
@@ -206,9 +207,9 @@ begins when
 - its underlying storage with proper size and alignment is obtained, **and,**
 - its initialization (if any[+note-3]) is **complete**.
 
-  [+note-3]: If `T` is not a class type, default initialization (e.g., `int x`) performs no initialization at all, leaving
-  the value *indeterminate*. Reading an indeterminate value is *undefined behaviour*. Use *value initialization* (with
-  empty curly braces) to ensure a starting value of 0.
+  [+note-3]: If `T` is not a class type, default initialization (e.g., `int x`) performs no initialization at all,
+    leaving the value *indeterminate*. Reading an indeterminate value is *undefined behaviour*. Use 
+    *value initialization* (with empty curly braces) to ensure a starting value of 0.
 
 The lifetime of an object of type `T` ends with:
 
@@ -246,7 +247,7 @@ called *Resource Acquisition is Initialization (RAII)*[+note-5].
 [+note-4]: i.e., not declared `static`, `extern`, nor `thread_local`.
 
 [+note-5]: Although arguably better names such as “Scope-bound Resource Management” (SBRM) or “Constructor Acquires,
-Destructor Releases” (CADRe) have been suggested, RAII is the name it is generally known by.
+  Destructor Releases” (CADRe) have been suggested, RAII is the name it is generally known by.
 
 An RAII class acquires its resource in its constructor, and releases it in its destructor. Its (copy/move)
 (constructors/assignment operators) also have to correctly handle the resource.
@@ -299,7 +300,7 @@ the program to perform cleanup steps.
 [+note-6]: Spoiler: the Standard Library implements many of these for us!
 
 [+note-7]: In general, C++ abstractions follow the *zero-overhead principle*: “what you don't use, you don't pay for;
-what you do use, you couldn't hand code any better”.
+  what you do use, you couldn't hand code any better”.
 
 ### Move semantics
 
@@ -380,8 +381,7 @@ constructor* looks like:
 Note that the reference parameter is now of the form `T&&` instead of `const T&`[+note-9]. We can call a move
 constructor like so:
 
-[+note-9]: Necessarily, `const` is now gone because to move (steal) the contents of an object we must be able to modify
-it.
+[+note-9]: Necessarily, `const` is now gone because to move (steal) the contents of an object we must be able to modify it.
 
 `std::vector<int> l2 = std::move(l1);`
 
@@ -427,7 +427,7 @@ occupy a specific memory address, it can produce more efficient code. For exampl
 have *immediate operands*, which can encode an operand directly into an instruction. The following in ARM assigns an
 embedded value 15 to register 0:
 
-```text
+```:no-line-numbers
 MOV r0, #0xF
 ```
 
@@ -518,7 +518,7 @@ There also exist two mixed categories which generalize the above:
 2. *rvalue*: the union of prvalues and xvalues[+note-11]; the set of all expressions that can be moved from.
 
 [+note-11]: Note that even though rvalues include xvalues (which have an identity and hence a memory address), you are
-not permitted to directly apply the address operator (`&`) on *any* rvalue.
+  not permitted to directly apply the address operator (`&`) on *any* rvalue.
 
 The following table shows the decomposition of value categories in C++11 and beyond:
 
