@@ -1,19 +1,22 @@
-import { defineThemeConfig } from 'vuepress-theme-plume'
+import { defineThemeConfig } from "vuepress-theme-plume"
+import { readdirSync } from "node:fs";
 
 // noinspection JSUnusedGlobalSymbols
 export default defineThemeConfig({
     footer: false,
     navbar: [
-        { text: 'Home', link: '/' },
+        { text: "Home", link: "/" },
         {
-            text: 'Labs',
+            text: "Labs",
             activeMatch: "/lab/",
-            items: [...Array(3)].map((_, i) => {
-                return {
-                    text: `Lab ${i + 1}`,
-                    link: `/lab/${i + 1}/`
-                }
-            })
+            items: readdirSync("docs/lab/", { withFileTypes: true })
+                .filter(entry => entry.isDirectory())
+                .map((dir) => {
+                    return {
+                        text: `Lab ${dir.name}`,
+                        link: `/lab/${dir.name}/`
+                    }
+                })
         }
     ],
 })
