@@ -427,7 +427,7 @@ occupy a specific memory address, it can produce more efficient code. For exampl
 have *immediate operands*, which can encode an operand directly into an instruction. The following in ARM assigns an
 embedded value 15 to register 0:
 
-```:no-line-numbers
+```mips:no-line-numbers
 MOV r0, #0xF
 ```
 
