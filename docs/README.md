@@ -72,3 +72,9 @@ Notes and lab preparatory materials for CMPUT 350 Fall 2026
 #### Exercise
 
 - [Exercise problems](lab/3/exercise)
+
+### Lab 4 — Cache layout and Timing
+
+#### Prep
+
+- [Prep problems](lab/4/prep)
