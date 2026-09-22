@@ -3,3 +3,11 @@
 ## Prep
 
 - [Prep problems](prep)
+
+## Exercise
+
+- [Exercise problems](exercise)
+
+## Challenge
+
+- [Challenge problems](challenge)
