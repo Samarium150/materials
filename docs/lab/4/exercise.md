@@ -2,6 +2,9 @@
 
 *Author: Daniel Zhang*
 
+> [!WARNING]
+> Due: September 22nd 2026, 11:30pm
+
 > [!IMPORTANT]
 > <RepoCard repo="UofA-CMPUT350/lab-4-exercise"></RepoCard>
 > Click `Use this template` button (NOT `fork`) to create your repo based on it
