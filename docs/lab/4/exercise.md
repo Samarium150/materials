@@ -264,8 +264,8 @@ one per line. Do not print the convolution results, but do `assert` that every o
 In `p2b.txt`, report your results and justify them in 1–2 sentences.
 
 Ensure your program does not leak memory. Use your compiler's leak sanitizer or tools such as `valgrind` to check. Your
-program must compile without warnings with `-Wall -Wextra -Wpedantic`. For timing, you may add `-DNDEBUG` to turn off
-assertions once you are confident your code is correct.
+program must compile without warnings with `cmake --build debug`. For timing, you may use `cmake --build release` to 
+turn off assertions once you are confident your code is correct.
 
 ::: tip Hint 1: Row-major indexing
 
